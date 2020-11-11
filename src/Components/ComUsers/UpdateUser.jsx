@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {connect} from 'react-redux';
 import { useHistory, useParams,  } from 'react-router-dom';
 import {getUser,updateUser} from '../../Actions/UserAction';
+import toast from 'react-toast-notification';
 const UpdateUser=(props)=>{
 
     const history=useHistory();
@@ -23,6 +24,7 @@ const UpdateUser=(props)=>{
     var SubmitUser=(event)=>{
         event.preventDefault();
        props.updateUser(user);
+       toast.success("User Updated Successfully!!!");
          history.push('/');
     }
 

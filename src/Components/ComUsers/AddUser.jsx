@@ -4,6 +4,7 @@ import { addUser } from "../../Actions/UserAction";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import toast from 'react-toast-notification';
 import classNames from "classnames";
 const AddUser = (props) => {
   const { register, handleSubmit, errors } = useForm({
@@ -15,6 +16,7 @@ const AddUser = (props) => {
   var SubmitUser = (data) => {
     console.log(data);
     props.addUser(data);
+    toast.success("User Added Successfully!!!");
     history.push("/");
   };
 
@@ -43,7 +45,7 @@ const AddUser = (props) => {
                     },
                   })}
                 />
-                <small className="error text-danger">
+                <small className="text-danger">
                   {errors.name && errors.name.message}
                 </small>
               </div>
@@ -63,7 +65,7 @@ const AddUser = (props) => {
                     },
                   })}
                 />
-                <small className="error text-danger">
+                <small className="text-danger">
                   {errors.username && errors.username.message}
                 </small>
               </div>
@@ -83,7 +85,7 @@ const AddUser = (props) => {
                     },
                   })}
                 />
-                <small className="error text-danger">
+                <small className="text-danger">
                   {errors.email && errors.email.message}
                 </small>
               </div>
@@ -108,7 +110,7 @@ const AddUser = (props) => {
                     },
                   })}
                 />
-                <small className="error text-danger">
+                <small className="text-danger">
                   {errors.phonenumber && errors.phonenumber.message}
                 </small>
               </div>
@@ -128,7 +130,7 @@ const AddUser = (props) => {
                     },
                   })}
                 />
-                <small className="error text-danger">
+                <small className="text-danger">
                   {errors.address && errors.address.message}
                 </small>
               </div>
